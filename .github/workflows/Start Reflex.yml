@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Start
       run: |
-        echo $GITHUB_WORKSPACE | xargs cd
+        cd $(echo $GITHUB_WORKSPACE)
         pip install ./requirements.txt
         reflex run --env prod
 
