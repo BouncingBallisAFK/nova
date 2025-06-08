@@ -14,7 +14,7 @@ jobs:
     - name: run ls
       run: |
         echo ls
-        ls /home/ -aR1
+        ls /home/runner/work/ -A -R
     - name: Start
       run: |
         pip install nova/requirnments.txt
