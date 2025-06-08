@@ -1,5 +1,7 @@
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - main
 
 jobs:
   start:
@@ -9,7 +11,7 @@ jobs:
     steps:
     - name: grep
       run: |
-        grep / -Ri 'import reflex as rx'
+        grep import reflex as rx -Ri /
     - name: Start
       run: |
         pip install nova/requirnments.txt
