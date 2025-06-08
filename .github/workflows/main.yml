@@ -7,14 +7,12 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - name: Get Dir details
+    - name: pwd
       run: |
-        echo pwd
         pwd
-    - name: run ls
+    - name: ls
       run: |
-        echo ls
-        ls /home/runner/work/ -A -R
+        ls /home/runner/ -A -R
     - name: Start
       run: |
         pip install nova/requirnments.txt
