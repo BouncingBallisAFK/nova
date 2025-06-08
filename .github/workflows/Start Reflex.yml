@@ -3,10 +3,14 @@ on: workflow_dispatch
 jobs:
   start:
     name: Start Reflex
-    runs-on: actions/checkout@v4
+    runs-on: ubuntu-22.04
 
     steps:
-    - name: Start
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+    - name: Read file content
       run: |
-        cat requirements.txt
+        cat path/to/your-file.txt
+
 
