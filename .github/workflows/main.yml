@@ -1,5 +1,6 @@
 on:
-  push: main
+  push: 
+  - main
 jobs:
   my_job:
     name: deploy to staging
