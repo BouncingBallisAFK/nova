@@ -9,8 +9,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-    - name: Read file content
-      run: |
-        cat path/to/your-file.txt
+      - name: Read file content
+        run: |
+          cat requirements.txt
 
 
