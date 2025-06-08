@@ -3,13 +3,10 @@ on: workflow_dispatch
 jobs:
   start:
     name: Start Reflex
-    runs-on: ubuntu-22.04
+    runs-on: actions/checkout@v4
 
     steps:
     - name: Start
       run: |
-        cd $(echo $GITHUB_WORKSPACE)
-        pwd
-        pip install ./requirements.txt
-        reflex run --env prod
+        cat requirements.txt
 
