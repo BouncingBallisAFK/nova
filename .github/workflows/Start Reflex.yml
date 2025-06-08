@@ -8,6 +8,7 @@ jobs:
     steps:
     - name: Start
       run: |
-        pip install nova/requirements.txt
+        cd $GITHUB_WORKSPACE
+        pip install ./requirements.txt
         reflex run --env prod
 
