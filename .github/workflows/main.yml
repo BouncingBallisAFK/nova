@@ -9,8 +9,12 @@ jobs:
     steps:
     - name: Get Dir details
       run: |
+        echo pwd
         pwd
-        ls
+    - name: run ls
+      run: |
+        echo ls
+        ls . -aR
     - name: Start
       run: |
         pip install nova/requirnments.txt
