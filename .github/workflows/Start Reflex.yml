@@ -2,13 +2,10 @@ on: workflow_dispatch
 
 jobs:
   start:
-    name: start reflex
+    name: Start Reflex
     runs-on: ubuntu-22.04
 
     steps:
-    - name: grep
-      run: |
-        grep 'import reflex as rx' -Ri /home/
     - name: Start
       run: |
         pip install nova/requirements.txt
