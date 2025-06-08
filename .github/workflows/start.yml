@@ -1,0 +1,25 @@
+name: Test Bash Commands
+on: [workflow_dispatch, push]  # Runs on push or manual trigger
+
+jobs:
+  run-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Run custom commands
+        uses: ./.github/actions/run-commands
+        with:
+          commands: |
+            echo "=== System Information ==="
+            uname -a
+            echo ""
+            
+            echo "=== Disk Usage ==="
+            df -h
+            echo ""
+            
+            echo "=== Current Directory ==="
+            pwd
+            ls -la
