@@ -10,5 +10,5 @@ jobs:
     steps:
     - name: Start
       run: |
-        pip install requirnments.txt
+        pip install ./requirnments.txt
         reflex run --env prod
