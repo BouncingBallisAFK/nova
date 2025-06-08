@@ -8,7 +8,8 @@ jobs:
     steps:
     - name: Start
       run: |
-        cd $(echo $GITHUB_WORKSPACE) && pwd$GITHUB_WORKSPACE
+        cd $(echo $GITHUB_WORKSPACE)
+        pwd
         pip install ./requirements.txt
         reflex run --env prod
 
