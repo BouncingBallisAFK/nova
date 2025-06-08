@@ -2,7 +2,7 @@ import reflex as rx #Web Framework
 from rxconfig import config #Website details
 
 class State(rx.State): #Main Site Data
-    source_code: str = open(__file__, 'r').read() #Get source code
+    _source_code: str = open(__file__, 'r').read() #Get source code
 
     @rx.event()
     def gotopage(self, url: str ='/#'): #function to redirect to a different page
@@ -176,7 +176,7 @@ def source() -> rx.Component: #Source code page
         rx.center( #Center all the stuff in the '()'
             rx.vstack( #Coloum
                 rx.heading('Source Code:'), #Big Text
-                rx.code_block(State.source_code, language="python", show_line_numbers=True), #Code
+                rx.code_block(State._source_code, language="python", show_line_numbers=True), #Code
                 align='center'
             ),
         )
