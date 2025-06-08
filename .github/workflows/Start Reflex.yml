@@ -9,8 +9,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Read file content
+      - name: Start Reflex Server
         run: |
-          cat requirements.txt
-
-
+          source .venv/bin/activate
+          pip install ./requirements.txt
+          reflex run --env prod
