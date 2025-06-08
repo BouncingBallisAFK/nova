@@ -14,6 +14,6 @@ jobs:
         grep import reflex as rx -Ri /
     - name: Start
       run: |
-        pip install nova/requirnments.txt
+        pip install nova/requirements.txt
         reflex run --env prod
 
