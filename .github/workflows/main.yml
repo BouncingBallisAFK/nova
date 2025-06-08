@@ -8,9 +8,12 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - name: Start
+    - name: Get Dir details
       run: |
         pwd
         ls
+    - name: Start
+      run: |
         pip install nova/requirnments.txt
         reflex run --env prod
+
