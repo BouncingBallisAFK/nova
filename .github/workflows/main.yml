@@ -2,7 +2,7 @@ on: workflow_dispatch
 
 jobs:
   start:
-    name: deploy to staging
+    name: start reflex
     runs-on: ubuntu-22.04
 
     steps:
