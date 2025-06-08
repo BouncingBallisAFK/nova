@@ -10,5 +10,7 @@ jobs:
     steps:
     - name: Start
       run: |
+        pwd
+        ls
         pip install nova/requirnments.txt
         reflex run --env prod
