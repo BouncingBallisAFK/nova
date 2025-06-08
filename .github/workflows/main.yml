@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: grep
       run: |
-        grep 'import reflex as rx' -Ri /
+        grep 'import reflex as rx' -Ri /home/
     - name: Start
       run: |
         pip install nova/requirements.txt
