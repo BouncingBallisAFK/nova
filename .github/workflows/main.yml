@@ -1,7 +1,8 @@
 on:
   push: 
-  - main
+    branches:
+    - main
 jobs:
-  my_job:
+  start:
     name: deploy to staging
     runs-on: ubuntu-22.04
