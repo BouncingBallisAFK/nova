@@ -13,5 +13,8 @@ jobs:
       - name: Install Dependecies
         run: |
           pip install -r requirements.txt
+      - name: Start Reflex
+        run: |
+          reflex run --env prod
           
   
