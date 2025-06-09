@@ -1,9 +1,12 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 name: Deploy to Vercel
 on:
   push:
     branches: [main]  # Trigger on pushes to main branch
 =======
+=======
+>>>>>>> Stashed changes
 on: workflow_dispatch
 
 >>>>>>> Stashed changes
@@ -12,6 +15,7 @@ jobs:
     name: Setup Application
     runs-on: ubuntu-latest
     steps:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,6 +36,19 @@ jobs:
         with:
           target_branch: vercel-deploy  # Branch Vercel monitors
           folder: .web/_static  # Reflex's static output directory
+=======
+      - name: Add Repository
+        uses: actions/checkout@v4
+      - name: Start .venv
+        run: |
+          source .venv/bin/activate
+      - name: Install Dependecies
+        run: |
+          pip install -r requirements.txt
+      - name: Start Reflex
+        run: |
+          reflex run --env prod
+>>>>>>> Stashed changes
 =======
       - name: Add Repository
         uses: actions/checkout@v4
