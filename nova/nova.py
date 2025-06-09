@@ -41,7 +41,6 @@ def home() -> rx.Component: #Home Button
         position='top-left'
     )
 
-@rx.page() #Tells web framework this is a page
 def index() -> rx.Component: #Home page
     return rx.container(
         rx.color_mode.button(position="top-right"), #Light/Dark mode switch
