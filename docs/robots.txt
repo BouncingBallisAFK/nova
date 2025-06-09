@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://BouncingBallisAFK.github.io/nova/
-
-# Sitemaps
-Sitemap: https://BouncingBallisAFK.github.io/nova/sitemap.xml
