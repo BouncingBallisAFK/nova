@@ -202,17 +202,15 @@ def r3d() -> rx.Component:
             
     
 
-@rx.page() #Tells web framework this is a page
 def source() -> rx.Component: #Source code page
     return rx.box(
         ui(),
         rx.center( #Center all the stuff in the '()'
             rx.vstack( #Coloum
                 rx.heading('Source Code:'), #Big Text
-                rx.container(
-                    rx.code_block(State._source_code, language="python", show_line_numbers=True), #Code
-                ),
-                align='center'
+                rx.code_block(State._source_code, language="python", show_line_numbers=True, wrap_long_lines=True, copy_button=True), #Code
+                align='center',
+                width='75vw'
             ),
         )
     )
