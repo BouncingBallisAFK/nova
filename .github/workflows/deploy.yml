@@ -2,7 +2,7 @@ on: workflow_dispatch
 
 jobs:
   deps:
-    name: Start Application
+    name: Setup Application
     runs-on: ubuntu-latest
     steps:
       - name: Add Repository
@@ -13,9 +13,13 @@ jobs:
       - name: Install Dependecies
         run: |
           pip install -r requirements.txt
-      - name: Start Docker
-        run: |
-          docker run -d -p 3000:3000 -p 8000:8000 --name app reflex-project:latest
-      - name: Start Reflex
-        run: |
-          REFLEX_API_URL=0.0.0.0:8000 reflex export
+    docker:
+      name: Start Docker
+      runs-on: ubuntu-latest
+      steps:
+        - name: Start Docker
+          run: |
+            docker run -d -p 3000:3000 -p 8000:8000 --name app reflex-project:latest
+        - name: Start Reflex
+          run: |
+            REFLEX_API_URL=0.0.0.0:8000 reflex export
