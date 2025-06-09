@@ -51,10 +51,18 @@ def index() -> rx.Component: #Home page
                 size="5", #Makes it a little bigger
             ),
             rx.hstack( #Row
-                rx.button('Source Code', on_click=State.gotopage('/source')), #Buttons!
-                rx.button('Reading/Video Log', on_click=State.gotopage('/1')),
-                rx.button('Coding Concepts', on_click=State.gotopage('/3/a')),
-                rx.button('Palendrome Checker', on_click=State.gotopage('/4a'))
+                rx.tooltip(
+                    rx.button('Reading/Video Log', on_click=State.gotopage('/1')),
+                    content="Req. 1",
+                ),
+                rx.tooltip(
+                    rx.button('Coding Concepts', on_click=State.gotopage('/3/a')),
+                    content="Req. 3",
+                ),
+                rx.tooltip(
+                    rx.button('Palendrome Checker', on_click=State.gotopage('/4a')),
+                    content="Req. 4a",
+                ),
             ),
             spacing="5", #Spaces out buttons
             justify="center", #Makes it all centered
@@ -147,23 +155,21 @@ def r3a() -> rx.Component:
                         rx.separator(),
                         rx.heading('Local and Global Variables', size='8'),
                         rx.separator(),
-                        rx.heading('Global Variables', size='6'),
+                        rx.heading('Global Variables'),
                         rx.text('A Global variable is a variable that is acessable anywhere. For example:'),
                         rx.code_block('''var=0\nclass main:\n   var=1\n   def __init__(self):\n      print(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
                         rx.separator(),
-                        rx.heading('Local Variables', size='6'),
+                        rx.heading('Local Variables'),
                         rx.text('A local variable is a variable that is only accessable inside it\'s class. Take that example from before:'),
-                        rx.code_block('''var=0\nclass main:\n   var=1\n   def __init__(self):\n      print(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
+                        rx.code_block('''var=0\nclass main:\n\tvar=1\n\tdef __init__(self):\n\t\tprint(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
                         rx.text('Modify:'),
-                        rx.code_block('''class main:\n   var=1\n   def __init__(self):\n      print(var)''', language="python", show_line_numbers=True),
+                        rx.code_block('''class main:\n\tvar=1\n\tdef __init__(self):\n\t\tprint(var)''', language="python", show_line_numbers=True),
                         rx.text('To:'),
-                        rx.code_block('''class main:\n   var=1\n   def __init__(self):\n      print(self.var)''', language="python", show_line_numbers=True),
+                        rx.code_block('''class main:\n\tvar=1\n\tdef __init__(self):\n\tprint(self.var)''', language="python", show_line_numbers=True),
                         rx.text('So the full code:'),
-                        rx.code_block('''var=0\nclass main:\n   var=1\n   def __init__(self):\n      print(self.var)\nmain()''', language="python", show_line_numbers=True),
+                        rx.code_block('''var=0\nclass main:\n\tvar=1\n\tdef __init__(self):\n\t\tprint(self.var)\nmain()''', language="python", show_line_numbers=True),
                         rx.text('Outputs:'),
                         rx.code_block('1', language="bash"),
-                        rx.separator(),
-                        rx.link("Next: Data Types and Formats ->", href="/3/bc"),
                     ),
                     justify='left'
                 ),
@@ -178,7 +184,67 @@ def r3bc() -> rx.Component:
             sidebar(),
             rx.center(
                 rx.container(
-                    rx.heading('Data Types and Formats'),
+                    rx.vstack(
+                        rx.heading('Data Types and Formats', size='8'),
+                        rx.separator(),
+                        rx.heading('Scalar Variables'),
+                        rx.text('Scalar variables contain only one value. These include strings, integers, floats, booleans, '),
+                        rx.separator(),
+                        rx.heading('String'),
+                        rx.text('In python, a string, or "str", is defined using single or double quotes. For example:'),
+                        rx.code_block('\'Hello, World!\'\n"Hello, World!"'),
+                        rx.separator(),
+                        rx.heading('Escape Characters'),
+                        rx.markdown('Escape characters are used to add extra things to strings.<br>`\\n` makes a new line in a string.<br>`\\\\` cancels out a backslash, so you can display a backslash like normal.<br>`\\\'` or `\\\"` to put single or double quotes when your string when the string is made with them.<br>For example: `\'aren\\\'t\'` `\"He said \\\"Hello!\\\"\"`<br>`\\r` acts as a carrige return.<br>`\\t` makes a tab.<br>`\\b` makes a backspace.<br>`\\ooo` adds a octal value as a character.<br>`\\xhh` adds a hex value as a character.'),
+                        rx.separator(),
+                        rx.heading('Multi-line String'),
+                        rx.text('A multi-line string is show with three single quotes. For Example:'),
+                        rx.code_block('\'\'\'Hello,\nWorld!\'\'\''),
+                        rx.separator(),
+                        rx.heading('F String'),
+                        rx.text('An F string can include variables using curly brackets. It is shown using a string with an "f" or "F" before the first quote For example:'),
+                        rx.code_block('a=1\nb=2\nc=a+b\nstring=f\'{a}+{b}={c}\''),
+                        rx.separator(),
+                        rx.heading('R String'),
+                        rx.text('An R string disables escape characters. It is shown using a string with an "r" or "R" before the first quote For example:'),
+                        rx.code_block('r\'\\home\\user\\Downloads\''),
+                        rx.separator(),
+                        rx.heading('Numbers'),
+                        rx.text('Numbers in python are catagorized based on if they have a decimal point or not. With a decimal point, they are a float. Else, they are an integer.'),
+                        rx.separator(),
+                        rx.heading('Integer'),
+                        rx.markdown('An integer, or "int", represents a positive or negative number WITHOUT a decimal point. Integers are written using `var=1`'),
+                        rx.separator(),
+                        rx.heading('Float'),
+                        rx.markdown('A float, or "flt", represents a positive or negative number WITH a decimal point. Floats are written using `var=1.5`'),
+                        rx.separator(),
+                        rx.heading('Complex'),
+                        rx.markdown('A complex represents a real and imaginary number with a unit. They are written using `var=3+5j`'),
+                        rx.separator(),
+                        rx.heading('Boolean'),
+                        rx.markdown('A boolean, or "bool", represents true or false. They are written using `var=True` or `var=False`'),
+                        rx.separator(),
+                        rx.heading('NoneType'),
+                        rx.markdown('A nonetype, or "None", represents nothing. They are written using `var=None`'),
+                        rx.separator(),
+                        rx.heading('Array'),
+                        rx.markdown('Array variables contain more than one value. These include lists, tuples, sets, and dictionarys.'),
+                        rx.separator(),
+                        rx.heading('List'),
+                        rx.markdown('Lists are unorgainzed sets of values. They are written by using `var=[\'Hello\', \'World!\', 2, True, None]`.'),
+                        rx.separator(),
+                        rx.heading('Using specific list values'),
+                        rx.markdown('Grabbing a value from a list can be done by using `var[0]`, where `var` is the list and `0` is the value\'s id (Starting at zero).<br>Using this method, we can also edit specific values as well, using `var[0]=new_value`, where `var` and `0` are the same as before, but `new_value` is the value we want to assign the list.'),
+                        rx.separator(),
+                        rx.heading('Tuples'),
+                        rx.markdown('Tuples are unorgainzed sets of values that are uneditable. They are written by using `var=(\'Hello\', \'World!\', 2, True, None)`'),
+                        rx.separator(),
+                        rx.heading('Sets'),
+                        rx.markdown('Lists and Sets are almost the same, but a set can\'t have values they are the same. They are written using `var={\'Value\', \'A different value\'}`'),
+                        rx.separator(),
+                        rx.heading('Dictionarys'),
+                        rx.markdown('Dictionarys and Sets are written the same except for one thing. Dictionarys have `key:value` pairs, for example `var={\'key\':\'value\', \'NOT the same key\':\'same/different value\'}`'),
+                    )
                 ),
                 width='75vw'
             )
@@ -197,22 +263,6 @@ def r3d() -> rx.Component:
             )
         )
     )
-            
-            
-    
-
-def source() -> rx.Component: #Source code page
-    return rx.box(
-        ui(),
-        rx.center( #Center all the stuff in the '()'
-            rx.vstack( #Coloum
-                rx.heading('Source Code:'), #Big Text
-                rx.code_block(State._source_code, language="python", show_line_numbers=True, wrap_long_lines=True, copy_button=True), #Code
-                align='center',
-                width='75vw'
-            ),
-        )
-    )
 #Add all pages
 app = rx.App()
 app.add_page(index, title='Home', route='/')
@@ -221,4 +271,3 @@ app.add_page(r3a, title='Local and Global Variables | 3a', route='/3/a')
 app.add_page(r3bc, title='Local and Global Variables | 3b & 3c', route='/3/bc')
 app.add_page(r3d, title='Local and Global Variables | 3d', route='/3/d')
 app.add_page(r4a, title='Palendrome Checker | 4a', route='/4a/')
-app.add_page(source, title='Source Code', route='/source/')
