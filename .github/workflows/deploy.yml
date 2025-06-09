@@ -1,0 +1,18 @@
+on: workflow_dispatch
+
+jobs:
+  deps:
+    name: Start Application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Repository
+        uses: actions/checkout@v4
+      - name: Start .venv
+        run: |
+          source .venv/bin/activate
+      - name: Install Dependecies
+        run: |
+          pip install -r requirements.txt
+      - name: Start Reflex
+        run: |
+          API_URL=http://nova-lemon-omega.vercel.app:8000 reflex export
