@@ -1,81 +1,21 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 name: Deploy to Vercel
-on:
-  push:
-    branches: [main]  # Trigger on pushes to main branch
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 on: workflow_dispatch
 
->>>>>>> Stashed changes
 jobs:
   app:
     name: Setup Application
     runs-on: ubuntu-latest
     steps:
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Upgrade Pip
+        run: python3 -m pip install --upgrade pip
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Build static frontend
-        run: reflex export --frontend-only --no-zip
-        env:
-          API_URL: "${{ secrets.API_URL }}"  # Use GitHub Secrets for API_URL
-      - name: Deploy to Vercel
-        uses: nicholasgriffintn/github-branch-deployer-action@v1
-        with:
-          target_branch: vercel-deploy  # Branch Vercel monitors
-          folder: .web/_static  # Reflex's static output directory
-=======
-      - name: Add Repository
-        uses: actions/checkout@v4
-      - name: Start .venv
-        run: |
-          source .venv/bin/activate
-      - name: Install Dependecies
-        run: |
-          pip install -r requirements.txt
-      - name: Start Reflex
-        run: |
-          reflex run --env prod
->>>>>>> Stashed changes
-=======
-      - name: Add Repository
-        uses: actions/checkout@v4
-      - name: Start .venv
-        run: |
-          source .venv/bin/activate
-      - name: Install Dependecies
-        run: |
-          pip install -r requirements.txt
-      - name: Start Reflex
-        run: |
-          reflex run --env prod
->>>>>>> Stashed changes
-=======
-      - name: Add Repository
-        uses: actions/checkout@v4
-      - name: Start .venv
-        run: |
-          source .venv/bin/activate
-      - name: Install Dependecies
-        run: |
-          pip install -r requirements.txt
-      - name: Start Reflex
-        run: |
-          reflex run --env prod
->>>>>>> Stashed changes
+        run: pip install -r requirements.txt
+      - name: Export
+        run: reflex export --no-zip
