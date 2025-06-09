@@ -209,7 +209,9 @@ def source() -> rx.Component: #Source code page
         rx.center( #Center all the stuff in the '()'
             rx.vstack( #Coloum
                 rx.heading('Source Code:'), #Big Text
-                rx.code_block(State._source_code, language="python", show_line_numbers=True), #Code
+                rx.container(
+                    rx.code_block(State._source_code, language="python", show_line_numbers=True), #Code
+                ),
                 align='center'
             ),
         )
