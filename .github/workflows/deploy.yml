@@ -19,9 +19,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Export Frontend
-        env:
-          API_URL: https://nova-lemon-omega.vercel.app/api
-        run: reflex export --frontend-only --no-zip
+        run: REFLEX_API_URL=https://nova-lemon-omega.vercel.app/api reflex export --frontend-only --no-zip
 
       - name: Export Backend
         run: reflex export --backend-only --no-zip
