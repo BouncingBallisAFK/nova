@@ -144,6 +144,7 @@ def r3a() -> rx.Component:
     )
 def r3bc() -> rx.Component:
     return rx.box(
+        ui(),
         rx.hstack(
             sidebar(),
             rx.center(
@@ -156,6 +157,7 @@ def r3bc() -> rx.Component:
     )
 def r3d() -> rx.Component:
     return rx.box(
+        ui(),
         rx.hstack(
             sidebar(),
             rx.center(
