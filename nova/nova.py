@@ -135,8 +135,19 @@ def r3a() -> rx.Component:
             sidebar(),
             rx.center(
                 rx.container(
-                    rx.heading('Local and Global Variables'),
-                    
+                    rx.vstack(
+                        rx.heading('Local and Global Variables', size='8'),
+                        rx.separator(),
+                        rx.heading('Global Variables', size='6'),
+                        rx.text('A Global variable is a variable that is acessable anywhere. For example:'),
+                        rx.code_block('''var=0\ndef main():\n   print(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
+                        rx.text('or:'),
+                        rx.code_block('''var=0\ndef main():\n   print(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
+                        rx.separator(),
+                        rx.heading('Local Variables', size='6'),
+                        rx.text('A local variable is a variable that is only accessable inside it\'s function or class. For example:'),
+                        rx.code_block('''def main():\n    var=0 #Local Variable\n#The "var" variable won\'t print out if we just run:\nprint(var)\n#Output:\nNameError: variable 'var' is not defined\n#Instead, you need to run:\nprint(main().var)\n#Output:\n0''', language="python", show_line_numbers=True)
+                    ),
                     justify='left'
                 ),
                 width='75vw'
