@@ -15,4 +15,4 @@ jobs:
           pip install -r requirements.txt
       - name: Start Reflex
         run: |
-          REFLEX_API_URL=http://nova-lemon-omega.vercel.app:8000 reflex export
+          REFLEX_API_URL=http://nova-lemon-omega.vercel.app/ reflex export
