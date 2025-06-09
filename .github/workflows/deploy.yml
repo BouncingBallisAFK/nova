@@ -27,7 +27,7 @@ jobs:
         run: reflex export --backend-only --no-zip
 
       - name: Upload for Vercel
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build
           path: |
