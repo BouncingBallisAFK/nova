@@ -95,13 +95,20 @@ def r4a() -> rx.Component: #Palendrome Checker
 def sidebar() -> rx.Component:
     return rx.container(
         rx.vstack(
-            rx.text(),
+            rx.text('Table Of Contents:', size='5'),
+            rx.separator(),
             rx.link("Local and Global Variables", href="/3/a"),
+            rx.separator(),
             rx.link("Data Types and Formats", href="/3/bc"),
+            rx.separator(),
             rx.link("Flow Instructions", href="/3/d"),
+            rx.separator(),
             rx.link("Functions and Parameters", href="/3/ef"),
+            rx.separator(),
             rx.link("Keys and Values", href="/3/g"),
-            rx.link("Universal Resource Locators (URLs)", href="/3/h")
+            rx.separator(),
+            rx.link("Universal Resource Locators (URLs)", href="/3/h"),
+            rx.separator()
         ),
         width='25vh'
     )
@@ -136,17 +143,28 @@ def r3a() -> rx.Component:
             rx.center(
                 rx.container(
                     rx.vstack(
+                        rx.heading('NOTICE: THE FOLLOWING APPLIES TO THE PROGRAMMING LANGUAGE PYTHON. IT CAN BE FOUND AT:', size='8'),
+                        rx.link('https://python.org/', href='https://python.org/', size='7'),
+                        rx.separator(),
                         rx.heading('Local and Global Variables', size='8'),
                         rx.separator(),
                         rx.heading('Global Variables', size='6'),
                         rx.text('A Global variable is a variable that is acessable anywhere. For example:'),
-                        rx.code_block('''var=0\ndef main():\n   print(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
-                        rx.text('or:'),
-                        rx.code_block('''var=0\ndef main():\n   print(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
+                        rx.code_block('''var=0\nclass main:\n   var=1\n   def __init__(self):\n      print(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
                         rx.separator(),
                         rx.heading('Local Variables', size='6'),
-                        rx.text('A local variable is a variable that is only accessable inside it\'s function or class. For example:'),
-                        rx.code_block('''def main():\n    var=0 #Local Variable\n#The "var" variable won\'t print out if we just run:\nprint(var)\n#Output:\nNameError: variable 'var' is not defined\n#Instead, you need to run:\nprint(main().var)\n#Output:\n0''', language="python", show_line_numbers=True)
+                        rx.text('A local variable is a variable that is only accessable inside it\'s class. Take that example from before:'),
+                        rx.code_block('''var=0\nclass main:\n   var=1\n   def __init__(self):\n      print(var)\nmain()\n#Output:\n0''', language="python", show_line_numbers=True),
+                        rx.text('Modify:'),
+                        rx.code_block('''class main:\n   var=1\n   def __init__(self):\n      print(var)''', language="python", show_line_numbers=True),
+                        rx.text('To:'),
+                        rx.code_block('''class main:\n   var=1\n   def __init__(self):\n      print(self.var)''', language="python", show_line_numbers=True),
+                        rx.text('So the full code:'),
+                        rx.code_block('''var=0\nclass main:\n   var=1\n   def __init__(self):\n      print(self.var)\nmain()''', language="python", show_line_numbers=True),
+                        rx.text('Outputs:'),
+                        rx.code_block('1', language="bash"),
+                        rx.separator(),
+                        rx.link("Next: Data Types and Formats ->", href="/3/bc"),
                     ),
                     justify='left'
                 ),
