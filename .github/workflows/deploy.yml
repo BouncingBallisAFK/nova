@@ -13,6 +13,8 @@ jobs:
       - name: Install Dependecies
         run: |
           pip install -r requirements.txt
-      - name: Start Reflex
-        run: |
-          reflex export --no-zip
+      - name: Export frontend
+        run: reflex export --no-zip --frontend-only
+      - name: Package backend
+        run: reflex export --no-zip --backend-only
+
