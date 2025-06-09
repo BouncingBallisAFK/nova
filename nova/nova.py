@@ -136,6 +136,7 @@ def r3a() -> rx.Component:
             rx.center(
                 rx.container(
                     rx.heading('Local and Global Variables'),
+                    justify='left'
                 ),
                 width='75vw'
             )
