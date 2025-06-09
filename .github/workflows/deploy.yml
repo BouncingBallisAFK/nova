@@ -20,7 +20,7 @@ jobs:
 
       - name: Export Frontend
         env:
-          API_URL: https://$VERCEL_PROJECT_URL/api
+          API_URL: https://nova-lemon-omega.vercel.app/api
         run: reflex export --frontend-only --no-zip
 
       - name: Export Backend
